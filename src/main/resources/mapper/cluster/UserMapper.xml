@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.spring.springboot.dao.cluster.UserDao">
+    <resultMap id="BaseUserList" type="org.spring.springboot.daomain.User">
+        <result property="id" column="id"/>
+        <result property="userName" column="user_name"/>
+        <result property="description" column="description"/>
+    </resultMap>
+
+    <parameterMap id="User" type="org.spring.springboot.daomain.User"/>
+
+    <sql id="BaseCloumn">
+      id ,user_name ,description
+    </sql>
+
+    <select id="findAllUser" resultMap="BaseUserList">
+        select
+        <include refid="BaseCloumn"/>
+        from
+          USER
+    </select>
+</mapper>
